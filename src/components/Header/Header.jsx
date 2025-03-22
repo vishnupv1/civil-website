@@ -4,6 +4,7 @@ import { BiMenuAltRight } from "react-icons/bi";
 import { getMenuStyles } from "../../utils/common";
 import useHeaderColor from "../../hooks/useHeaderColor";
 import OutsideClickHandler from "react-outside-click-handler";
+import { HiOutlineMenuAlt3, HiOutlineMenu  } from "react-icons/hi";
 
 const Header = () => {
   const [menuOpened, setMenuOpened] = useState(false);
@@ -14,7 +15,6 @@ const Header = () => {
       <div className="flexCenter innerWidth paddings h-container">
         {/* logo */}
         <img src="./logo.jpg" alt="logo" width={100} />
-        
 
         {/* menu */}
         <OutsideClickHandler
@@ -42,7 +42,11 @@ const Header = () => {
           className="menu-icon"
           onClick={() => setMenuOpened((prev) => !prev)}
         >
-          <BiMenuAltRight size={30} />
+          {menuOpened ? (
+            <HiOutlineMenuAlt3 size={30} />
+          ) : (
+            <HiOutlineMenu size={30} />
+          )}
         </div>
       </div>
     </section>
